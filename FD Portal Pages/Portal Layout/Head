@@ -1,0 +1,41 @@
+<!-- Title for the page -->
+<title> {{ meta.title }} : {{ portal.name }} </title>
+
+<!-- Meta information -->
+{{ meta | default_meta }}
+
+<!-- Responsive setting -->
+{{ portal | default_responsive_settings }}
+
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="https://assets.sitescdn.net/answers-search-bar/v1.0/answers.css"
+  />
+  <script src="https://assets.sitescdn.net/answers-search-bar/v1.0/answerstemplates.compiled.min.js"></script>
+  <script>
+    function initAnswers() {
+      ANSWERS.init({
+        apiKey: "01db1d1e5ebbaa7ea2e6807ad2196ab3",
+        experienceKey: "yext_help_site",
+        experienceVersion: "PRODUCTION",
+        locale: "en", // e.g. en
+        businessId: "919871",
+        templateBundle: TemplateBundle.default,
+        onReady: function() {
+          ANSWERS.addComponent("SearchBar", {
+            container: ".search_form",
+            name: "search-bar", //Must be unique for every search bar on the same page
+            redirectUrl: "https://newaccount1626172233628.freshdesk.com/support/search",
+            placeholderText: "Search...",
+          });
+        },
+      });
+    }
+  </script>
+  <script
+    src="https://assets.sitescdn.net/answers-search-bar/v1.0/answers.min.js"
+    onload="ANSWERS.domReady(initAnswers)"
+    async
+    defer
+  ></script>
